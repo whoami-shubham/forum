@@ -1,0 +1,40 @@
+<html>
+<head>
+    
+<title></title>
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+<div class="header">
+<h1 style="color: white;text-align: center ">Forum</h1>
+</div>
+<div class="content">
+    <div style="margin-left: 15%;margin-top: 5%;margin-right: 5%">
+    <a href="{{url_for('Newthread')}}"><button style="color: white;background-color: green;border:none;border-radius: 5px" >New Thread</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{url_for('logout')}}"><button style="color: white;background-color: red;border:none;border-radius: 5px" >Logout</button></a><br><br><br>
+    <h2 style="color: #55dafd">{{post.title}}</h2><br>
+        <p style="text-align: justify;text-justify: inter-word;font-size: 18px">{{post.content}}</p><br>
+        <pre style="color:crimson;font-size: 16px">:- {{post.user_name}}</pre><br>
+       <p style="font-size: 22px;font-weight: 400"><u>Comments</u></p><br>
+        {% if comm %}
+        {% for i in comm %}
+        <span>{{i.text}}</span> &nbsp;&nbsp;
+        <span style="color: red">:- <i>{{i.user_name}}</i></span><br>
+        {% if cur_usr==i.user_name %}
+        <span><a href="{{url_for('editcomment',post_id=post.id,comment_id=i.id)}}" style="font-size:10px">edit</a> &nbsp;&nbsp;<a href="{{url_for('deletecomment',post_id=post.id,comment_id=i.id)}}" style="font-size:10px">delete</a></span>
+        {% endif %}
+        <br>
+        {% endfor %}
+        {% endif %}
+        <form action="{{url_for('Addcomment',post_id=post.id)}}" method="post">
+            <textarea name="comment" rows="5" cols="30"></textarea>
+            <input type="submit" value="Comment">
+        </form>
+    </div>
+</div>
+<div class="footer">
+<p style="color: white;text-align: center;">&copy; by shubham  All Rights are reserverd. </p>
+</div>  
+</body>
+    
+</html>

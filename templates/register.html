@@ -1,0 +1,92 @@
+<html>
+<head>
+    <title>Login/Register</title>
+    <style>
+        html{
+            background-color:aliceblue;
+        }
+        .R{
+            margin: 10%;
+            background-color: black;
+            color: white;
+            width: 70%;
+            padding-left: 7%;
+            border-radius: 15px
+        }
+        .L{
+            margin: 10%;
+            background-color: black;
+            color: white;
+            width: 70%;
+            padding-left: 7%;
+            border-radius: 15px
+            
+        }
+        #r,#l{
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .M{
+            display:flex;
+        }
+        html {
+              background-image: url('b1.jpg')
+              background-size: 100%;
+            } 
+
+        @media screen and (max-width: 900px){
+            html{
+                background: black;
+            }
+            .R{
+                margin: 5%;
+                padding: 5%;
+            }
+            .L{
+                margin: 0;
+                margin: 5%;
+                padding: 5%;
+            }
+            .M{
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center">Forum</h1>
+<div class="M">
+<div class="L">
+<form action="./login"  method="post">
+            {% if err1 %}
+            <p style="color: red">Invalid Username</p>
+            {% endif %}
+            <p><input type="email" name="email" placeholder="email" required style="margin-top: 5%"></p>
+            <p><input type="submit" value="Login" id="l"></p>
+</form>
+</div>
+<div class="R">
+    {% if log %}
+    <p style="color: green">Now you're Registered ! </p>
+    {% endif %}
+    <form action="./register"  method="post">
+            {% if err2 %}
+            <p style="color:red">Try different email</p>
+            {% endif %}
+            {% if err3 %}
+            <p style="color:crimson">Username Already Taken try with another one</p>
+            {% endif %}
+            <p><input type="text" name="username" placeholder="username" required  style="margin-top: 5%"></p>
+            <p><input type="email" name="email" placeholder="email" required ></p>
+            <p><input type=submit value="Register" id="r"></p>
+        </form>
+</div>
+</div>
+</body>   
+</html>

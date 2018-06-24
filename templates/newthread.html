@@ -1,0 +1,31 @@
+<html>
+<head>
+    
+<title></title>
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+<div class="header">
+<h1 style="color: white;text-align: center ">Forum</h1>
+</div>
+<div class="content">
+    <div style="margin-left: 20%;margin-top: 5%">
+     <span style="color: #55dafd;font-size: 22px;font-weight: 400">Threads</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{url_for('logout')}}"><button style="color: white;background-color: red;border:none;border-radius: 5px" >Logout</button></a><br><br><br>
+    <form action="{{url_for('Newthread')}}" method="post">
+        <p><input type="text" name="title" placeholder="Title" required ></p>
+        <p><textarea name="content" rows="15" cols="70"></textarea></p>
+        <p><input type="submit" value="Create"></p>
+
+
+        
+    </form>    
+    </div>
+</div>
+<div class="footer">
+<p style="color: white;text-align: center;">&copy; by shubham  All Rights are reserverd.</p>
+</div>  
+</body>
+    
+</html>
